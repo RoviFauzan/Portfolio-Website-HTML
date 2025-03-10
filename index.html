@@ -2,221 +2,508 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="jigar sable, portfolio, jigar, full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
+    <meta name="description" content="Welcome to Jigar's Portfolio. Full-Stack Web Developer and Android App Developer" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Favicon -->
+    <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
     <title>Portfolio | Rovi Fauzan</title>
 </head>
-<body>
-    <header>
-        <h1>RvF</h1>
-        <nav>
+<body oncontextmenu="return false">
+
+
+<!-- navbar starts -->
+<header>
+        <a href="/" class="logo"><i class="fab fa-node-js"></i> RvF</a>
+
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#whyme">Why Me</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#whyme">Why Me</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
-    </header>
+</header>
+<!-- navbar ends -->
 
-    <main>
-        <section id="home">
-            <h2>Hi There, I'm Rovi Fauzan</h2>
-            <p>I am a Full Stack Developer</p>
-            <a href="#about">About Me</a>
-            
-            <div>
-                <ul>
-                    <li><a href="https://www.linkedin.com/in/rovi-fauzan-aba699352">LinkedIn</a></li>
-                    <li><a href="https://github.com/RoviFauzan">GitHub</a></li>
-                    <li><a href="https://t.me/rovifauzan">Telegram</a></li>
-                    <li><a href="https://www.instagram.com/rovifauzan465">Instagram</a></li>
-                </ul>
-            </div>
-        </section>
 
-        <section id="about">
-            <h2>About Me</h2>
-            <img src="./assets/images/profile2.jpg" alt="Rovi Fauzan" width="350" height="400">
-            <div>
+<!-- hero section starts -->
+<section class="home" id="home">
+    <div class="content">
+    <h2>Hi There,<br/> I'm Rovi <span>Fauzan</span></h2>
+    <p>i am into 
+        <span class="static-text">Full Stack Development, Web Design, UI/UX Design</span>
+    </p>
+    <a href="#about" class="btn"><span>About Me</span>
+      <i class="fas fa-arrow-circle-down"></i>
+    </a>
+    <div class="socials">
+        <ul class="social-icons">
+          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/rovi-fauzan-aba699352" target="_blank"><i class="fab fa-linkedin"></i></a></li> 
+          <li><a class="github" aria-label="GitHub" href="https://github.com/RoviFauzan" target="_blank"><i class="fab fa-github"></i></a></li>
+          <li><a class="telegram" aria-label="Telegram" href="https://t.me/rovifauzan" target="_blank"><i class="fab fa-telegram-plane"></i></a></li>
+          <li><a class="instagram" aria-label="Instagram" href="https://www.instagram.com/rovifauzan465"><i class="fab fa-instagram" target="_blank"></i></a></li>
+        </ul>
+      </div>
+    </div>
+<div class="image">
+    <img draggable="false" class="tilt" src="./assets/images/hero.png" alt="">
+</div>
+</section>
+<!-- hero section ends -->
+
+
+<!-- about section starts -->
+<section class="about" id="about">
+    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
+    
+    <div class="row">
+        <div class="image">
+            <img draggable="false" class="tilt" src="./assets/images/profile2.jpg" alt="">
+        </div>
+        <div class="content">
+            <div class="about-intro">
                 <h3>I'm Rovi Fauzan</h3>
-                <p>Full Stack Developer</p>
+                <span class="tag">Full Stack Developer</span>
                 <p>I am a Full Stack Developer with a focus on modern web development and UI/UX design.</p>
             </div>
-        </section>
 
-        <section id="skills">
-            <h2>Skills & Abilities</h2>
-            <div>
-                <h3>Frontend</h3>
-                <ul>
-                    <li>HTML</li>
-                    <li>CSS</li>
-                    <li>JavaScript</li>
-                    <li>React</li>
-                </ul>
-
-                <h3>Backend</h3>
-                <ul>
-                    <li>Node.js</li>
-                    <li>PHP</li>
-                    <li>Python</li>
-                </ul>
-
-                <h3>Database</h3>
-                <ul>
-                    <li>MySQL</li>
-                    <li>MongoDB</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="whyme">
-            <h2>Why Me</h2>
-            <ul>
-                <li>
-                    <h3>Programming Skills</h3>
-                    <p>Experienced in multiple programming languages and problem-solving.</p>
-                </li>
-                <li>
-                    <h3>Project Management</h3>
-                    <p>Efficient in handling projects from planning to execution.</p>
-                </li>
-                <li>
-                    <h3>Team Player</h3>
-                    <p>Excellent collaboration and leadership in teamwork environments.</p>
-                </li>
-                <li>
-                    <h3>Innovative Thinking</h3>
-                    <p>Creative problem-solver with a passion for innovation.</p>
-                </li>
-            </ul>
-        </section>
-
-        <section id="testimonials">
-            <h2>Testimonials</h2>
-            <div>
-                <article>
-                    <p>"Rovi is a fantastic developer! His work exceeded my expectations."</p>
-                    <p>- John Doe, ABC Tech Solutions</p>
-                </article>
-                <article>
-                    <p>"Highly recommend Rovi for any web development needs."</p>
-                    <p>- Jane Smith, XYZ Digital Agency</p>
-                </article>
-            </div>
-        </section>
-
-        <section id="portfolio">
-            <h2>Portfolio</h2>
-            <div>
-                <!-- Portfolio items will be added here -->
-                <p>Portfolio items coming soon</p>
-            </div>
-        </section>
-
-        <section id="contact">
-            <h2>Contact</h2>
-            <div>
-                <h3>Contact Information</h3>
-                <ul>
-                    <li>Phone: +62 821-2725-2900</li>
-                    <li>Email: rovifauzan24@gmail.com</li>
-                    <li>Location: Tasikmalaya, Indonesia-46122</li>
-                </ul>
-            </div>
-            
-            <form>
-                <h3>Send Me a Message</h3>
-                <div>
-                    <input type="text" name="name" placeholder="Your Name" required>
-                    <input type="email" name="email" placeholder="Your Email" required>
-                    <input type="text" name="subject" placeholder="Subject" required>
-                    <textarea name="message" placeholder="Your Message" required></textarea>
-                    <button type="submit">Send Message</button>
+            <div class="about-content">
+                <div class="about-tabs">
+                    <button class="about-tab active">Identity</button>
+                    <button class="about-tab">Interests</button>
+                    <button class="about-tab">Expertise</button>
                 </div>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <div>
-            <div>
-                <h3>Rovi's Portfolio</h3>
-                <p>Thank you for visiting my personal portfolio website. Connect with me over socials.</p>
-                <div>
-                    <h4>Legal</h4>
-                    <ul>
-                        <li><a href="/privacy-policy">Privacy Policy</a></li>
-                        <li><a href="/terms-of-service">Terms of Service</a></li>
-                        <li><a href="/sitemap">Sitemap</a></li>
-                        <li><a href="/faq">FAQ</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div>
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#whyme">Why Me</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-
-            <div>
-                <h3>Contact Info</h3>
-                <ul>
-                    <li>Phone: +62 821-2725-2900</li>
-                    <li>Email: rovifauzan24@gmail.com</li>
-                    <li>Location: Tasikmalaya, Indonesia-46122</li>
-                </ul>
                 
-                <div>
-                    <h4>Social Media</h4>
-                    <ul>
-                        <li><a href="https://www.linkedin.com/in/rovi-fauzan-aba699352">LinkedIn</a></li>
-                        <li><a href="https://github.com/RoviFauzan">GitHub</a></li>
-                        <li><a href="mailto:rovifauzan24@gmail.com">Email</a></li>
-                        <li><a href="https://t.me/rovifauzan">Telegram</a></li>
-                        <li><a href="https://www.instagram.com/rovifauzan465">Instagram</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3>Certificates</h3>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <img src="./assets/images/certificates/aws-cloud.jpg" alt="AWS Certificate">
-                                <span>AWS Cloud Practitioner</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="./assets/images/certificates/google-cloud.jpg" alt="Google Certificate">
-                                <span>Google Cloud Associate</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="./assets/images/certificates/azure-fund.jpg" alt="Azure Certificate">
-                                <span>Azure Fundamentals</span>
-                            </a>
-                        </li>
-                    </ul>
-                    <a href="/certificates">View All Certificates</a>
+                <div class="tab-content">
+                    <div class="tab-pane active">
+                        <ul>
+                            <li><strong>Name:</strong> Rovi Fauzan</li>
+                            <li><strong>Birth:</strong> June, 10, 2004</li>
+                            <li><strong>Nationality:</strong> Indonesia</li>
+                            <li><strong>Location:</strong> Tasikmalaya</li>
+                            <li><strong>Email:</strong> rovifauzan24@gmail.com</li>
+                            <li><strong>University:</strong> Siliwangi University</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane hidden">
+                        <ul>
+                            <li>Web Development</li>
+                            <li>UI/UX Design</li>
+                            <li>Mobile Development</li>
+                            <li>Cloud Computing</li>
+                            <li>DevOps</li>
+                            <li>Artificial Intelligence</li>
+                        </ul>
+                    </div>
+                    <div class="tab-pane hidden">
+                        <ul>
+                            <li>Frontend Development</li>
+                            <li>Backend Development</li>
+                            <li>Database Management</li>
+                            <li>API Development</li>
+                            <li>Cloud Services</li>
+                            <li>Version Control</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+    </div>
+</section>
+<!-- about section ends -->
 
-        <p>© 2025 Rovi Fauzan. All rights reserved.</p>
-    </footer>
+<!-- skills section starts -->
+<section class="skills" id="skills">
+  <h2 class="heading"><i class="fas fa-tools"></i> Skills & <span>Abilities</span></h2>
+
+  <div class="container">
+      <div class="skills-grid">
+          <div class="skill-category">
+              <h3>Frontend Development</h3>
+              <div class="skill-items">
+                  <div class="skill-item">HTML5</div>
+                  <div class="skill-item">CSS3</div>
+                  <div class="skill-item">JavaScript</div>
+                  <div class="skill-item">React.js</div>
+                  <div class="skill-item">Vue.js</div>
+              </div>
+          </div>
+
+          <div class="skill-category">
+              <h3>Backend Development</h3>
+              <div class="skill-items">
+                  <div class="skill-item">Node.js</div>
+                  <div class="skill-item">PHP</div>
+                  <div class="skill-item">Python</div>
+                  <div class="skill-item">Java</div>
+                  <div class="skill-item">Express.js</div>
+              </div>
+          </div>
+
+          <div class="skill-category">
+              <h3>Database</h3>
+              <div class="skill-items">
+                  <div class="skill-item">MySQL</div>
+                  <div class="skill-item">MongoDB</div>
+                  <div class="skill-item">PostgreSQL</div>
+                  <div class="skill-item">Firebase</div>
+              </div>
+          </div>
+
+          <div class="skill-category">
+              <h3>Dev Tools</h3>
+              <div class="skill-items">
+                  <div class="skill-item">Git</div>
+                  <div class="skill-item">Docker</div>
+                  <div class="skill-item">VS Code</div>
+                  <div class="skill-item">Postman</div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- skills section ends -->
+
+
+<!-- why me section starts -->
+<section class="whyme-container" id="whyme">
+  <h1 class="whyme-heading"><i class="fas fa-graduation-cap"></i> Why <span>Me</span></h1>
+
+  <div class="whyme-box-container">
+      <div class="whyme-box">
+          <i class="fas fa-laptop-code"></i>
+          <div class="whyme-content">
+              <h3>Programming Skills</h3>
+              <p>Experienced in multiple programming languages and problem-solving.</p>
+          </div>
+      </div>
+
+      <div class="whyme-box">
+          <i class="fas fa-project-diagram"></i>
+          <div class="whyme-content">
+              <h3>Project Management</h3>
+              <p>Efficient in handling projects from planning to execution.</p>
+          </div>
+      </div>
+
+      <div class="whyme-box">
+          <i class="fas fa-users"></i>
+          <div class="whyme-content">
+              <h3>Team Player</h3>
+              <p>Excellent collaboration and leadership in teamwork environments.</p>
+          </div>
+      </div>
+
+      <div class="whyme-box">
+          <i class="fas fa-lightbulb"></i>
+          <div class="whyme-content">
+              <h3>Innovative Thinking</h3>
+              <p>Creative problem-solver with a passion for innovation.</p>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- whyme section ends -->
+
+<section id="testimonials" class="testimonial-section">
+  <h2 class="heading"><i class="fas fa-briefcase"></i> Testimonials </h2>
+  <div class="testimonial-container">
+      <div class="testimonials">
+          <div class="testimonial">
+              <div class="profile-icon"></div>
+              <p>"Rovi is a fantastic developer! His work exceeded my expectations."</p>
+              <h4>- John Doe</h4>
+              <p class="company">ABC Tech Solutions</p>
+              <div class="stars">★★★★★</div>
+          </div>
+          <div class="testimonial">
+              <div class="profile-icon"></div>
+              <p>"Highly recommend Rovi for any web development needs. Professional and efficient!"</p>
+              <h4>- Jane Smith</h4>
+              <p class="company">XYZ Digital Agency</p>
+              <div class="stars">★★★★★</div>
+          </div>
+          <div class="testimonial">
+              <div class="profile-icon"></div>
+              <p>"Amazing attention to detail and very responsive. A pleasure to work with!"</p>
+              <h4>- Michael Lee</h4>
+              <p class="company">UI/UX Designer, Creative Co.</p>
+              <div class="stars">★★★★★</div>
+          </div>
+          <div class="testimonial">
+              <div class="profile-icon"></div>
+              <p>"Delivered outstanding results in a short amount of time. Will hire again!"</p>
+              <h4>- Sarah Connor</h4>
+              <p class="company">Entrepreneur</p>
+              <div class="stars">★★★★★</div>
+          </div>
+          <div class="testimonial">
+              <div class="profile-icon"></div>
+              <p>"Great problem-solving skills and very creative. Highly recommended!"</p>
+              <h4>- David Brown</h4>
+              <p class="company">Marketing Specialist, Bright Media</p>
+              <div class="stars">★★★★★</div>
+          </div>
+          <div class="testimonial">
+              <div class="profile-icon"></div>
+              <p>"Professional and easy to communicate with. Helped my business grow online!"</p>
+              <h4>- Emily White</h4>
+              <p class="company">CEO, White Enterprises</p>
+              <div class="stars">★★★★★</div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<!-- Portfolio section starts -->
+<section class="portfolio" id="portfolio">
+  <h2 class="heading"><i class="fas fa-laptop-code"></i> Portfolio <span>Projects</span></h2>
+
+  <div class="box-container">
+      <div class="box">
+          <img src="./assets/images/projects/project1.jpg" alt="project1"/>
+          <div class="content">
+              <div class="tag">
+                  <h3>Website Project</h3>
+              </div>
+              <div class="desc">
+                  <h3>E-commerce Website</h3>
+                  <p>Online shopping platform with modern features</p>
+                  <div class="btns">
+                      <a href="#" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                      <a href="#" class="btn" target="_blank"><i class="fas fa-code"></i> Code</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="./assets/images/projects/project2.jpg" alt="project2"/>
+          <div class="content">
+              <div class="tag">
+                  <h3>Web App</h3>
+              </div>
+              <div class="desc">
+                  <h3>Task Management App</h3>
+                  <p>Full-stack task management application</p>
+                  <div class="btns">
+                      <a href="#" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                      <a href="#" class="btn" target="_blank"><i class="fas fa-code"></i> Code</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="box">
+          <img src="./assets/images/projects/project3.jpg" alt="project3"/>
+          <div class="content">
+              <div class="tag">
+                  <h3>UI/UX Design</h3>
+              </div>
+              <div class="desc">
+                  <h3>Mobile App Design</h3>
+                  <p>Modern mobile app interface design</p>
+                  <div class="btns">
+                      <a href="#" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                      <a href="#" class="btn" target="_blank"><i class="fas fa-code"></i> Code</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="viewall">
+      <a class="btn"><span>View All</span>
+          <i class="fas fa-arrow-right"></i>
+      </a>
+  </div>
+</section>
+<!-- Portfolio section ends -->
+
+<!-- contact section starts -->
+<section class="contact" id="contact">
+  <h2 class="heading"><i class="fas fa-headset"></i> Contact</h2>
+  
+  <div class="container">
+    <div class="content">
+      <!-- Contact Information Box -->
+      <div class="contact-info-box">
+        <h3>Contact Information</h3>
+        <p class="contact-desc">Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+        
+        <div class="info-wrapper">
+          <div class="info-item">
+            <div class="icon-circle">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="details">
+              <h4>Call Me</h4>
+              <p>+62 821-2725-2900</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon-circle">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="details">
+              <h4>Email Me</h4>
+              <p>rovifauzan24@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon-circle">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="details">
+              <h4>Location</h4>
+              <p>Tasikmalaya, Indonesia-46122</p>
+              <a href="https://maps.app.goo.gl/VouNeSKZHuHGGsUh9" target="_blank" class="map-link">View on Maps</a>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://github.com/RoviFauzan" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/rovi-fauzan-aba699352" target="_blank">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/rovifauzan465" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://t.me/rovifauzan" target="_blank">
+              <i class="fab fa-telegram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Message Form Box -->
+      <div class="message-box">
+        <h3>Send Me a Message</h3>
+        <form action="mailto:rovifauzan24@gmail.com" method="POST" enctype="text/plain">
+          <div class="form-group">
+            <div class="field">
+              <input type="text" name="name" placeholder="Your Name" required>
+              <i class='fas fa-user'></i>
+            </div>
+            <div class="field">
+              <input type="email" name="email" placeholder="Your Email" required>
+              <i class='fas fa-envelope'></i>
+            </div>
+            <div class="field">
+              <input type="text" name="subject" placeholder="Subject" required>
+              <i class='fas fa-tag'></i>
+            </div>
+            <div class="message">
+              <textarea placeholder="Your Message" name="message" required></textarea>
+              <i class="fas fa-comment-dots"></i>
+            </div>
+          </div>
+          <div class="button-area">
+            <button type="submit">
+              Send Message <i class="fa fa-paper-plane"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- contact section ends -->
+
+
+<!-- footer section starts -->
+<section class="footer">
+
+  <div class="box-container">
+
+      <div class="box">
+          <h3>Rovi's Portfolio</h3>
+          <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀. Connect with me over live chat!</p>
+          
+
+          <div class="policy-links">
+            <h4>Legal</h4>
+            <a href="/privacy-policy"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+            <a href="/terms-of-service"><i class="fas fa-gavel"></i> Terms of Service</a>
+            <a href="/sitemap"><i class="fas fa-sitemap"></i> Sitemap</a>
+            <a href="/faq"><i class="fas fa-question-circle"></i> FAQ</a>
+          </div>
+      </div>
+
+      <div class="box">
+          <h3>quick links</h3>
+          <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
+          <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
+          <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+          <a href="#whyme"><i class="fas fa-chevron-circle-right"></i> why me</a>
+          <a href="#testimonials"><i class="fas fa-chevron-circle-right"></i> testimonials</a>
+          <a href="#portfolio"><i class="fas fa-chevron-circle-right"></i> portfolio</a>
+          <a href="#contact"><i class="fas fa-chevron-circle-right"></i> contact</a>
+      </div>
+
+      <div class="box">
+          <h3>contact info</h3>
+          <p> <i class="fas fa-phone"></i>+62 821-2725-2900</p>
+          <p> <i class="fas fa-envelope"></i>rovifauzan24@gmail.com</p>
+          <p> <i class="fas fa-map-marked-alt"></i>tasikmalaya, indonesia-46122</p>
+          <div class="share">
+
+              <a href="https://www.linkedin.com/in/rovi-fauzan-aba699352" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
+              <a href="https://github.com/RoviFauzan" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
+              <a href="mailto:rovifauzan24@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
+              <a href="https://t.me/rovifauzan" class="fab fa-telegram-plane" aria-label="Telegram" target="_blank"></a>
+              <a href="https://www.instagram.com/rovifauzan465" class="fab fa-instagram" aria-label="Instagram" target="_blank"></a>
+          </div>
+
+          <div class="certificates-footer">
+            <h3>certificates</h3>
+            <div class="cert-grid">
+                <a href="#" class="cert-item">
+                    <img src="./assets/images/certificates/aws-cloud.jpg" alt="AWS Certificate">
+                    <span>AWS Cloud Practitioner</span>
+                </a>
+                <a href="#" class="cert-item">
+                    <img src="./assets/images/certificates/google-cloud.jpg" alt="Google Certificate">
+                    <span>Google Cloud Associate</span>
+                </a>
+                <a href="#" class="cert-item">
+                    <img src="./assets/images/certificates/azure-fund.jpg" alt="Azure Certificate">
+                    <span>Azure Fundamentals</span>
+                </a>
+            </div>
+            <a href="/certificates" class="view-more-certs">
+                View All Certificates 
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+      </div>
+  </div>
+
+  <h1 class="credit">© 2025 <a href="https://www.linkedin.com/in/jigar-sable"></a> Rovi Fauzan. All rights reserved.</h1>
+</section>
+<!-- footer section ends -->
+
+
+<!-- scroll top btn -->
+<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
+<!-- scroll back to top -->
+
 </body>
 </html>
