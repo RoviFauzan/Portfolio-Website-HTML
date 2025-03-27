@@ -895,8 +895,8 @@ header .navbar ul li a:hover {
 
 /* work section starts */
 .portfolio {
-  /* background: #010124; */
-  background: linear-gradient(to bottom, #000031, #00002c);
+  background: linear-gradient(to bottom, #010136, #00003a);
+  padding-bottom: 6rem;
 }
 .portfolio h2 {
   color: #fff;
@@ -910,14 +910,18 @@ header .navbar ul li a:hover {
   flex-wrap: wrap;
   gap: 1.5rem;
   margin: 2rem;
+  justify-content: center;
 }
 .portfolio .box-container .box {
   flex: 1 1 30rem;
   border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.7rem 1rem rgba(0, 0, 0, 0.3);
   position: relative;
   overflow: hidden;
   height: 30rem;
+  background: #fff;
+  border: none;
+  max-width: 360px;
 }
 .portfolio .box-container .box img {
   height: 100%;
@@ -933,6 +937,7 @@ header .navbar ul li a:hover {
   background: rgba(255, 255, 255, 0.9);
   display: flex;
   flex-direction: column;
+  transition: all 0.3s ease;
 }
 .portfolio .box-container .box .content .tag {
   display: flex;
@@ -981,31 +986,32 @@ header .navbar ul li a:hover {
 .portfolio .viewall {
   display: flex;
   justify-content: center;
+  margin-top: 2rem;
 }
 .portfolio .viewall .btn {
   position: relative;
   line-height: 0;
   padding: 1.6rem 3rem;
   border-radius: 0.5em;
-  transition: 0.5s;
-  color: rgb(255, 255, 255);
-  font-weight: 700;
+  transition: 0.3s;
+  color: #fff;
   border: 2px solid #fff;
-  box-shadow: 0px 5px 10px rgba(65, 84, 241, 0.4);
+  box-shadow: 0px 2px 4px rgba(48, 68, 247, 0.3);
   text-align: center;
+  font-weight: 600;
+  font-size: 1.7rem;
 }
 .portfolio .viewall .btn span {
   font-weight: 600;
   font-size: 1.7rem;
-  font-family: "Nunito", sans-serif;
 }
 .portfolio .viewall .btn i {
-  margin-left: 0.3rem;
+  margin-left: 0.5rem;
   font-size: 1.5rem;
   transition: 0.3s;
 }
 .portfolio .viewall .btn:hover {
-  background: #fff;
+  background: #ffffff;
   color: #000;
 }
 .portfolio .viewall .btn:hover i {
