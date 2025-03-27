@@ -4,18 +4,23 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="keywords" content="jigar sable, portfolio, jigar, full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
-    <meta name="description" content="Welcome to Jigar's Portfolio. Full-Stack Web Developer and Android App Developer" />
+    <meta name="keywords" content="rovi fauzan, portfolio, rovi, full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
+    <meta name="description" content="Welcome to Rovi's Portfolio. Full-Stack Web Developer and Android App Developer" />
     <!-- Custom CSS -->
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/wireframe.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Favicon -->
     <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
     <title>Portfolio | Rovi Fauzan</title>
 </head>
-<body oncontextmenu="return false">
+<body class="wireframe" oncontextmenu="return false">
 
+<!-- pre loader -->
+<!-- <div class="loader-container">
+  <img draggable="false" src="./assets/images/preloader.gif" alt="">
+</div> -->
 
 <!-- navbar starts -->
 <header>
@@ -39,11 +44,11 @@
 
 <!-- hero section starts -->
 <section class="home" id="home">
+    <div id="particles-js"></div>
+
     <div class="content">
     <h2>Hi There,<br/> I'm Rovi <span>Fauzan</span></h2>
-    <p>i am into 
-        <span class="static-text">Full Stack Development, Web Design, UI/UX Design</span>
-    </p>
+    <p>i am into <span class="typing-text"></span></p>
     <a href="#about" class="btn"><span>About Me</span>
       <i class="fas fa-arrow-circle-down"></i>
     </a>
@@ -78,45 +83,14 @@
                 <p>I am a Full Stack Developer with a focus on modern web development and UI/UX design.</p>
             </div>
 
-            <div class="about-content">
-                <div class="about-tabs">
-                    <button class="about-tab active">Identity</button>
-                    <button class="about-tab">Interests</button>
-                    <button class="about-tab">Expertise</button>
-                </div>
-                
-                <div class="tab-content">
-                    <div class="tab-pane active">
-                        <ul>
-                            <li><strong>Name:</strong> Rovi Fauzan</li>
-                            <li><strong>Birth:</strong> June, 10, 2004</li>
-                            <li><strong>Nationality:</strong> Indonesia</li>
-                            <li><strong>Location:</strong> Tasikmalaya</li>
-                            <li><strong>Email:</strong> rovifauzan24@gmail.com</li>
-                            <li><strong>University:</strong> Siliwangi University</li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane hidden">
-                        <ul>
-                            <li>Web Development</li>
-                            <li>UI/UX Design</li>
-                            <li>Mobile Development</li>
-                            <li>Cloud Computing</li>
-                            <li>DevOps</li>
-                            <li>Artificial Intelligence</li>
-                        </ul>
-                    </div>
-                    <div class="tab-pane hidden">
-                        <ul>
-                            <li>Frontend Development</li>
-                            <li>Backend Development</li>
-                            <li>Database Management</li>
-                            <li>API Development</li>
-                            <li>Cloud Services</li>
-                            <li>Version Control</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="about-tabs">
+                <button class="about-tab active" data-tab="identity">Identity</button>
+                <button class="about-tab" data-tab="interests">Interests</button>
+                <button class="about-tab" data-tab="expertise">Expertise</button>
+            </div>
+
+            <div class="about-content" id="aboutContent">
+                <!-- Content will be loaded dynamically via JavaScript -->
             </div>
         </div>
     </div>
@@ -127,56 +101,22 @@
 <section class="skills" id="skills">
   <h2 class="heading"><i class="fas fa-tools"></i> Skills & <span>Abilities</span></h2>
 
+  <div class="tabs">
+      <button class="tab active" data-category="Frontend">Frontend</button>
+      <button class="tab" data-category="Backend">Backend</button>
+      <button class="tab" data-category="Database">Database</button>
+      <button class="tab" data-category="Dev Tools">Dev Tools</button>
+      <button class="tab" data-category="Soft Skills">Soft Skills</button>
+  </div>
+
   <div class="container">
-      <div class="skills-grid">
-          <div class="skill-category">
-              <h3>Frontend Development</h3>
-              <div class="skill-items">
-                  <div class="skill-item">HTML5</div>
-                  <div class="skill-item">CSS3</div>
-                  <div class="skill-item">JavaScript</div>
-                  <div class="skill-item">React.js</div>
-                  <div class="skill-item">Vue.js</div>
-              </div>
-          </div>
-
-          <div class="skill-category">
-              <h3>Backend Development</h3>
-              <div class="skill-items">
-                  <div class="skill-item">Node.js</div>
-                  <div class="skill-item">PHP</div>
-                  <div class="skill-item">Python</div>
-                  <div class="skill-item">Java</div>
-                  <div class="skill-item">Express.js</div>
-              </div>
-          </div>
-
-          <div class="skill-category">
-              <h3>Database</h3>
-              <div class="skill-items">
-                  <div class="skill-item">MySQL</div>
-                  <div class="skill-item">MongoDB</div>
-                  <div class="skill-item">PostgreSQL</div>
-                  <div class="skill-item">Firebase</div>
-              </div>
-          </div>
-
-          <div class="skill-category">
-              <h3>Dev Tools</h3>
-              <div class="skill-items">
-                  <div class="skill-item">Git</div>
-                  <div class="skill-item">Docker</div>
-                  <div class="skill-item">VS Code</div>
-                  <div class="skill-item">Postman</div>
-              </div>
-          </div>
-      </div>
+      <div class="row" id="skillsContainer"></div>
   </div>
 </section>
 <!-- skills section ends -->
 
 
-<!-- why me section starts -->
+<!-- education section starts -->
 <section class="whyme-container" id="whyme">
   <h1 class="whyme-heading"><i class="fas fa-graduation-cap"></i> Why <span>Me</span></h1>
 
@@ -215,7 +155,7 @@
   </div>
 </section>
 
-<!-- whyme section ends -->
+<!-- education section ends -->
 
 <section id="testimonials" class="testimonial-section">
   <h2 class="heading"><i class="fas fa-briefcase"></i> Testimonials </h2>
@@ -268,70 +208,23 @@
 </section>
 
 
-<!-- Portfolio section starts -->
+<!-- work project section starts -->
 <section class="portfolio" id="portfolio">
-  <h2 class="heading"><i class="fas fa-laptop-code"></i> Portfolio <span>Projects</span></h2>
+
+  <h2 class="heading"><i class="fas fa-laptop-code"></i> Portfolio</h2>
 
   <div class="box-container">
-      <div class="box">
-          <img src="./assets/images/projects/project1.jpg" alt="project1"/>
-          <div class="content">
-              <div class="tag">
-                  <h3>Website Project</h3>
-              </div>
-              <div class="desc">
-                  <h3>E-commerce Website</h3>
-                  <p>Online shopping platform with modern features</p>
-                  <div class="btns">
-                      <a href="#" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-                      <a href="#" class="btn" target="_blank"><i class="fas fa-code"></i> Code</a>
-                  </div>
-              </div>
-          </div>
-      </div>
 
-      <div class="box">
-          <img src="./assets/images/projects/project2.jpg" alt="project2"/>
-          <div class="content">
-              <div class="tag">
-                  <h3>Web App</h3>
-              </div>
-              <div class="desc">
-                  <h3>Task Management App</h3>
-                  <p>Full-stack task management application</p>
-                  <div class="btns">
-                      <a href="#" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-                      <a href="#" class="btn" target="_blank"><i class="fas fa-code"></i> Code</a>
-                  </div>
-              </div>
-          </div>
-      </div>
+</div>
 
-      <div class="box">
-          <img src="./assets/images/projects/project3.jpg" alt="project3"/>
-          <div class="content">
-              <div class="tag">
-                  <h3>UI/UX Design</h3>
-              </div>
-              <div class="desc">
-                  <h3>Mobile App Design</h3>
-                  <p>Modern mobile app interface design</p>
-                  <div class="btns">
-                      <a href="#" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
-                      <a href="#" class="btn" target="_blank"><i class="fas fa-code"></i> Code</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+<div class="viewall">
+  <a href="/projects" class="btn"><span>View All</span>
+    <i class="fas fa-arrow-right"></i>
+</a>
+</div>
 
-  <div class="viewall">
-      <a class="btn"><span>View All</span>
-          <i class="fas fa-arrow-right"></i>
-      </a>
-  </div>
 </section>
-<!-- Portfolio section ends -->
+<!-- work project section ends -->
 
 <!-- contact section starts -->
 <section class="contact" id="contact">
@@ -396,7 +289,7 @@
       <!-- Message Form Box -->
       <div class="message-box">
         <h3>Send Me a Message</h3>
-        <form action="mailto:rovifauzan24@gmail.com" method="POST" enctype="text/plain">
+        <form id="contact-form">
           <div class="form-group">
             <div class="field">
               <input type="text" name="name" placeholder="Your Name" required>
@@ -496,7 +389,7 @@
       </div>
   </div>
 
-  <h1 class="credit">© 2025 <a href="https://www.linkedin.com/in/jigar-sable"></a> Rovi Fauzan. All rights reserved.</h1>
+  <h1 class="credit">© 2025 <a href="https://www.linkedin.com/in/rovi-fauzan-aba699352"></a> Rovi Fauzan. All rights reserved.</h1>
 </section>
 <!-- footer section ends -->
 
@@ -504,6 +397,63 @@
 <!-- scroll top btn -->
 <a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
 <!-- scroll back to top -->
+
+
+<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
+<!-- jquery cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- typed.js cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- particle.js links -->
+<script src="./assets/js/particles.min.js"></script>
+<script src="./assets/js/app.js"></script>
+
+<!-- vanilla tilt.js links -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- scroll reveal anim -->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+    ></script>
+
+
+    
+<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
+
+<script src="./assets/js/script.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const testimonials = document.querySelector(".testimonials");
+      const testimonialElements = document.querySelectorAll(".testimonial");
+      const testimonialWidth = testimonialElements[0].offsetWidth + 30;
+      const totalTestimonials = testimonialElements.length;
+
+      // Duplikasi elemen untuk efek infinite scroll
+      testimonials.innerHTML += testimonials.innerHTML;
+
+      let index = 0;
+      function nextTestimonial() {
+          index++;
+          testimonials.style.transition = "transform 0.5s linear";
+          testimonials.style.transform = `translateX(${-index * testimonialWidth}px)`;
+          
+          if (index >= totalTestimonials) {
+              setTimeout(() => {
+                  testimonials.style.transition = "none";
+                  index = 0;
+                  testimonials.style.transform = `translateX(0px)`;
+              }, 500);
+          }
+      }
+      setInterval(nextTestimonial, 3000);
+  });
+</script>
 
 </body>
 </html>
