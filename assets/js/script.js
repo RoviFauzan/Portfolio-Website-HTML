@@ -400,3 +400,49 @@ document.querySelectorAll('.about-tab').forEach(tab => {
 document.addEventListener('DOMContentLoaded', () => {
     showAboutContent('identity');
 });
+
+// Portfolio Section
+function loadPortfolioItems() {
+  fetch("projects.json")
+    .then(response => response.json())
+    .then(data => {
+      // Display only first 4 projects
+      const projectsToShow = data.slice(0, 6);
+      let projectsContainer = document.querySelector(".portfolio .box-container");
+      let projectsHTML = "";
+      
+      projectsToShow.forEach(project => {
+        projectsHTML += `
+          <div class="box tilt">
+            <img draggable="false" src="./assets/images/projects/${project.image}.png" alt="project" />
+            <div class="content">
+              <div class="tag">
+                <h3>${project.name}</h3>
+              </div>
+              <div class="desc">
+                <p>${project.desc}</p>
+                <div class="btns">
+                  <a href="${project.links.view}" class="btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                  <a href="${project.links.code}" class="btn" target="_blank">Code <i class="fas fa-code"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      
+      projectsContainer.innerHTML = projectsHTML;
+      
+      // Initialize vanilla tilt.js for portfolio items
+      VanillaTilt.init(document.querySelectorAll(".portfolio .tilt"), {
+        max: 15,
+      });
+    })
+    .catch(error => console.error("Error loading portfolio items:", error));
+}
+
+// Call the function when the document is loaded
+document.addEventListener("DOMContentLoaded", function() {
+  // Load portfolio items
+  loadPortfolioItems();
+});
