@@ -1163,7 +1163,7 @@ header .navbar ul li a:hover {
 .message-box input,
 .message-box textarea {
   width: 100%;
-  padding: 1.5rem 2rem;
+  padding: 1.5rem 4rem 1.5rem 2rem; /* Add more right padding for indicators */
   font-size: 1.6rem;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -1865,4 +1865,88 @@ header .navbar ul li a:hover {
     .social-links a {
         padding: 1rem;
     }
+}
+
+/* Form validation styles */
+.field, .message {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.error-message {
+  color: #e74c3c;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+  display: block;
+  font-weight: 500;
+  text-transform: none;
+  text-align: left;
+  position: absolute;
+  left: 0;
+  bottom: -2rem;
+}
+
+.field.error input, 
+.message.error textarea {
+  border-color: #e74c3c;
+}
+
+.field.success input, 
+.message.success textarea {
+  border-color: #2ecc71;
+}
+
+.field .indicator,
+.message .indicator {
+  position: absolute;
+  top: 50%;
+  right: 1.5rem;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+}
+
+.message .indicator {
+  top: 1.5rem;
+}
+
+.field .indicator.success,
+.message .indicator.success {
+  color: #2ecc71;
+}
+
+.field .indicator.error,
+.message .indicator.error {
+  color: #e74c3c;
+}
+
+@media (max-width: 768px) {
+  .error-message {
+    font-size: 1.1rem;
+    bottom: -1.8rem;
+  }
+}
+
+/* Web3Forms result message styling */
+#result {
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-align: center;
+  display: none;
+  transition: all 0.3s ease;
+  text-transform: none;
+}
+
+#result.success {
+  background-color: rgba(46, 204, 113, 0.15);
+  color: #2ecc71;
+  border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+#result.error {
+  background-color: rgba(231, 76, 60, 0.15);
+  color: #e74c3c;
+  border: 1px solid rgba(231, 76, 60, 0.3);
 }
