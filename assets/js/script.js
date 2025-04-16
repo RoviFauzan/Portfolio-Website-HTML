@@ -37,22 +37,314 @@ $(document).ready(function () {
         }, 500, 'linear')
     });
 
-    // <!-- emailjs to mail contact form data -->
+    // Contact form submission with Web3Forms
     $("#contact-form").submit(function (event) {
-        emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
-
-        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
-            });
         event.preventDefault();
+        
+        // Validate form before submission
+        if (validateContactForm()) {
+            const form = document.getElementById('contact-form');
+            const result = document.getElementById('result');
+            const submitBtn = document.getElementById('submit-btn');
+            
+            // Show loading message
+            submitBtn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            result.innerHTML = "Please wait...";
+            result.style.display = "block";
+            
+            // Prepare form data
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+            
+            // Send the form data to Web3Forms
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    result.innerHTML = "Message sent successfully!";
+                    result.classList.add("success");
+                    form.reset();
+                    // Reset validation styling
+                    resetFormValidation();
+                } else {
+                    console.log(response);
+                    result.innerHTML = json.message;
+                    result.classList.add("error");
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                result.innerHTML = "Something went wrong!";
+                result.classList.add("error");
+            })
+            .finally(() => {
+                // Reset button state
+                submitBtn.innerHTML = 'Send Message <i class="fa fa-paper-plane"></i>';
+                submitBtn.disabled = false;
+                
+                // Hide result message after 5 seconds
+                setTimeout(() => {
+                    result.style.display = "none";
+                    result.classList.remove("success", "error");
+                }, 5000);
+            });
+        }
     });
-    // <!-- emailjs to mail contact form data -->
+
+    // Form validation functions
+    function validateContactForm() {
+        let isValid = true;
+        
+        // Validate Name
+        const nameInput = $("#name");
+        const nameValue = nameInput.val().trim();
+        const nameField = nameInput.parent();
+        
+        if (nameValue === "") {
+            showError(nameField, "Name is required");
+            isValid = false;
+        } else if (nameValue.length < 2) {
+            showError(nameField, "Name must be at least 2 characters");
+            isValid = false;
+        } else if (nameValue.length > 50) {
+            showError(nameField, "Name cannot exceed 50 characters");
+            isValid = false;
+        } else {
+            showSuccess(nameField);
+        }
+        
+        // Validate Email
+        const emailInput = $("#email");
+        const emailValue = emailInput.val().trim().toLowerCase(); // Convert to lowercase
+        emailInput.val(emailValue); // Update the field with lowercase value
+        const emailField = emailInput.parent();
+        const emailPattern = /^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$/; // Only lowercase allowed in pattern
+        
+        if (emailValue === "") {
+            showError(emailField, "Email is required");
+            isValid = false;
+        } else if (!emailPattern.test(emailValue)) {
+            showError(emailField, "Please enter a valid email (lowercase only)");
+            isValid = false;
+        } else if (emailValue.length > 100) {
+            showError(emailField, "Email cannot exceed 100 characters");
+            isValid = false;
+        } else {
+            showSuccess(emailField);
+        }
+        
+        // Validate Phone
+        const phoneInput = $("#phone");
+        const phoneValue = phoneInput.val().trim();
+        const phoneField = phoneInput.parent();
+        const phonePattern = /^[0-9+\-\s()]{7,15}$/;
+        
+        if (phoneValue === "") {
+            showError(phoneField, "Phone number is required");
+            isValid = false;
+        } else if (!phonePattern.test(phoneValue)) {
+            showError(phoneField, "Please enter a valid phone number");
+            isValid = false;
+        } else {
+            showSuccess(phoneField);
+        }
+        
+        // Validate Subject
+        const subjectInput = $("#subject");
+        const subjectValue = subjectInput.val().trim();
+        const subjectField = subjectInput.parent();
+        
+        if (subjectValue === "") {
+            showError(subjectField, "Subject is required");
+            isValid = false;
+        } else if (subjectValue.length < 3) {
+            showError(subjectField, "Subject must be at least 3 characters");
+            isValid = false;
+        } else if (subjectValue.length > 100) {
+            showError(subjectField, "Subject cannot exceed 100 characters");
+            isValid = false;
+        } else {
+            showSuccess(subjectField);
+        }
+        
+        // Validate Message
+        const messageInput = $("#message");
+        const messageValue = messageInput.val().trim();
+        const messageField = messageInput.parent();
+        
+        if (messageValue === "") {
+            showError(messageField, "Message is required");
+            isValid = false;
+        } else if (messageValue.length > 500) {
+            showError(messageField, "Message cannot exceed 500 characters");
+            isValid = false;
+        } else {
+            showSuccess(messageField);
+        }
+        
+        return isValid;
+    }
+
+    function showError(field, message) {
+        field.removeClass("success").addClass("error");
+        field.find(".error-message").text(message);
+        
+        // Remove any existing indicators
+        field.find(".indicator").remove();
+        
+        // Add error indicator
+        field.append('<span class="indicator error"><i class="fas fa-times-circle"></i></span>');
+    }
+
+    function showSuccess(field) {
+        field.removeClass("error").addClass("success");
+        field.find(".error-message").text("");
+        
+        // Remove any existing indicators
+        field.find(".indicator").remove();
+        
+        // Add success indicator
+        field.append('<span class="indicator success"><i class="fas fa-check-circle"></i></span>');
+    }
+
+    function resetFormValidation() {
+        $(".field, .message").removeClass("error success");
+        $(".error-message").text("");
+        $(".indicator").remove();
+    }
+
+    // Real-time validation as the user types
+    $(document).ready(function() {
+        // Initialize validation on page load for already filled inputs
+        $("#contact-form input, #contact-form textarea").each(function() {
+            if ($(this).val().trim() !== "") {
+                validateInput($(this));
+            }
+        });
+        
+        // Set up live validation
+        $("#name").on("input", function() {
+            validateInput($(this));
+        });
+        
+        $("#email").on("input", function() {
+            let value = $(this).val().toLowerCase();
+            $(this).val(value);
+            validateInput($(this));
+        });
+        
+        $("#phone").on("input", function() {
+            validateInput($(this));
+        });
+        
+        $("#subject").on("input", function() {
+            validateInput($(this));
+        });
+        
+        $("#message").on("input", function() {
+            validateInput($(this));
+        });
+        
+        // Add character counter for fields with limits
+        $("#name, #email, #phone, #subject, #message").on("input", function() {
+            const maxLength = $(this).attr("maxlength");
+            const currentLength = $(this).val().length;
+            const parent = $(this).parent();
+            
+            // Update or add character counter
+            if (parent.find(".char-counter").length) {
+                parent.find(".char-counter").text(`${currentLength}/${maxLength}`);
+            } else {
+                parent.append(`<small class="char-counter">${currentLength}/${maxLength}</small>`);
+            }
+            
+            // Change color when approaching limit
+            if (currentLength > maxLength * 0.8) {
+                parent.find(".char-counter").css("color", "#e74c3c");
+            } else {
+                parent.find(".char-counter").css("color", "#666");
+            }
+        });
+    });
+
+    function validateInput(input) {
+        const id = input.attr("id");
+        let value = input.val().trim();
+        const parent = input.parent();
+        
+        // For email, convert to lowercase
+        if (id === "email") {
+            value = value.toLowerCase();
+            input.val(value); // Update the input field with lowercase value
+        }
+        
+        switch(id) {
+            case "name":
+                if (value === "") {
+                    showError(parent, "Name is required");
+                } else if (value.length < 2) {
+                    showError(parent, "Name must be at least 2 characters");
+                } else if (value.length > 50) {
+                    showError(parent, "Name cannot exceed 50 characters");
+                } else {
+                    showSuccess(parent);
+                }
+                break;
+                
+            case "email":
+                const emailPattern = /^[a-z0-9._-]+@[a-z0-9.-]+\.[a-z]{2,}$/; // Only lowercase allowed
+                if (value === "") {
+                    showError(parent, "Email is required");
+                } else if (!emailPattern.test(value)) {
+                    showError(parent, "Please enter a valid email (lowercase only)");
+                } else {
+                    showSuccess(parent);
+                }
+                break;
+                
+            case "phone":
+                const phonePattern = /^[0-9+\-\s()]{7,15}$/;
+                if (value === "") {
+                    showError(parent, "Phone number is required");
+                } else if (!phonePattern.test(value)) {
+                    showError(parent, "Please enter a valid phone number");
+                } else {
+                    showSuccess(parent);
+                }
+                break;
+                
+            case "subject":
+                if (value === "") {
+                    showError(parent, "Subject is required");
+                } else if (value.length < 3) {
+                    showError(parent, "Subject must be at least 3 characters");
+                } else if (value.length > 100) {
+                    showError(parent, "Subject cannot exceed 100 characters");
+                } else {
+                    showSuccess(parent);
+                }
+                break;
+                
+            case "message":
+                if (value === "") {
+                    showError(parent, "Message is required");
+                } else if (value.length > 500) {
+                    showError(parent, "Message cannot exceed 500 characters");
+                } else {
+                    showSuccess(parent);
+                }
+                break;
+        }
+    }
 
 });
 
@@ -277,19 +569,6 @@ document.onkeydown = function (e) {
         return false;
     }
 }
-
-// Start of Tawk.to Live Chat
-var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-(function () {
-    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-    s1.async = true;
-    s1.src = 'https://embed.tawk.to/60df10bf7f4b000ac03ab6a8/1f9jlirg6';
-    s1.charset = 'UTF-8';
-    s1.setAttribute('crossorigin', '*');
-    s0.parentNode.insertBefore(s1, s0);
-})();
-// End of Tawk.to Live Chat
-
 
 /* ===== SCROLL REVEAL ANIMATION ===== */
 const srtop = ScrollReveal({
