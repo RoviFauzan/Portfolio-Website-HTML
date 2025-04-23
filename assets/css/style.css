@@ -358,6 +358,10 @@ header .navbar ul li a:hover {
 .about .row .image {
   text-align: center;
   flex: 1 1 35rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
 }
 .about .row .image img {
   margin: 4rem;
@@ -571,6 +575,106 @@ header .navbar ul li a:hover {
     
     .about-content ul {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Blog button in About section - Enhanced unique styling */
+.about .blog-btn {
+    margin-top: 1.5rem;
+    display: inline-block;
+    padding: 1.2rem 2.5rem;
+    background: linear-gradient(135deg, #2506ad 0%, #4a00e0 100%);
+    color: #fff;
+    border-radius: 1rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: 2px solid transparent;
+    box-shadow: 0 5px 15px rgba(37, 6, 173, 0.4);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1.2);
+    width: 70%;
+    text-align: center;
+    z-index: 1;
+    text-transform: uppercase;
+}
+
+.about .blog-btn:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 25%, rgba(255, 255, 255, 0.2) 50%, transparent 75%);
+    background-size: 200% 200%;
+    z-index: -1;
+    animation: shine 3s infinite linear;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.about .blog-btn:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(37, 6, 173, 0.5);
+    background: linear-gradient(135deg, #3a10c0 0%, #6422ff 100%);
+    border-color: rgba(255, 255, 255, 0.2);
+    letter-spacing: 1px;
+}
+
+.about .blog-btn:hover:before {
+    opacity: 1;
+}
+
+.about .blog-btn span {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.about .blog-btn i {
+    margin-left: 0.8rem;
+    font-size: 1.6rem;
+    position: relative;
+    top: 1px;
+    transition: transform 0.4s ease;
+    vertical-align: middle;
+}
+
+.about .blog-btn:hover span {
+    margin-right: 5px;
+}
+
+.about .blog-btn:hover i {
+    transform: rotate(15deg) scale(1.2);
+    animation: float 1.2s ease-in-out infinite;
+}
+
+@keyframes shine {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 200% 0%;
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(15deg);
+    }
+    50% {
+        transform: translateY(-5px) rotate(15deg) scale(1.2);
+    }
+}
+
+/* Media queries for blog button */
+@media screen and (max-width: 600px) {
+    .about .blog-btn {
+        width: 85%;
+        padding: 1rem 2rem;
+        font-size: 1.6rem;
     }
 }
 
@@ -1425,6 +1529,48 @@ header .navbar ul li a:hover {
 
 .view-more-certs i {
     font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+    .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Blog quick link - unique styling */
+.footer .box-container .box a.blog-quicklink {
+    color: #ffae00;
+    position: relative;
+    transition: all 0.3s ease;
+    padding-left: 0.5rem;
+}
+
+.footer .box-container .box a.blog-quicklink i {
+    color: #ffae00;
+    margin-right: 0.8rem;
+    font-size: 1.6rem;
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+.footer .box-container .box a.blog-quicklink:hover {
+    color: #fff;
+    transform: translateX(5px);
+}
+
+.footer .box-container .box a.blog-quicklink:hover i {
+    transform: rotate(-15deg) scale(1.2);
+    color: #fff;
+    animation: featherFloat 1s ease-in-out infinite;
+}
+
+@keyframes featherFloat {
+    0%, 100% {
+        transform: rotate(-15deg) translateY(0);
+    }
+    50% {
+        transform: rotate(-20deg) translateY(-3px) scale(1.1);
+    }
 }
 
 @media (max-width: 768px) {
