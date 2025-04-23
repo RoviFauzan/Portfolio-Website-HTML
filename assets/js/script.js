@@ -184,6 +184,9 @@ $(document).ready(function () {
         if (messageValue === "") {
             showError(messageField, "Message is required");
             isValid = false;
+        } else if (messageValue.length < 10) {
+            showError(messageField, "Message must be at least 10 characters");
+            isValid = false;
         } else if (messageValue.length > 500) {
             showError(messageField, "Message cannot exceed 500 characters");
             isValid = false;
@@ -337,6 +340,8 @@ $(document).ready(function () {
             case "message":
                 if (value === "") {
                     showError(parent, "Message is required");
+                } else if (value.length < 10) {
+                    showError(parent, "Message must be at least 10 characters");
                 } else if (value.length > 500) {
                     showError(parent, "Message cannot exceed 500 characters");
                 } else {
