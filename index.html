@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="rovi fauzan, portfolio, rovi, full stack dev, personal portfolio lifecodes, portfolio design, portfolio website, personal portfolio" />
+    <meta name="description" content="Welcome to Rovi's Portfolio. Full-Stack Web Developer and Android App Developer" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Favicon -->
+    <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
+    <title>Portfolio | Rovi Fauzan</title>
+</head>
+<body class="wireframe" oncontextmenu="return false">
+
+<!-- pre loader -->
+<!-- <div class="loader-container">
+  <img draggable="false" src="./assets/images/preloader.gif" alt="">
+</div> -->
+
+<!-- navbar starts -->
+<header>
+        <a href="/" class="logo"><i class="fab fa-node-js"></i> RvF</a>
+
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <ul>
+            <li><a class="active" href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#whyme">Why Me</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+</header>
+<!-- navbar ends -->
+
+
+<!-- hero section starts -->
+<section class="home" id="home">
+    <div id="particles-js"></div>
+
+    <div class="content">
+    <h2>Hi There,<br/> I'm Rovi <span>Fauzan</span></h2>
+    <p>i am into <span class="typing-text"></span></p>
+    <a href="#about" class="btn"><span>About Me</span>
+      <i class="fas fa-arrow-circle-down"></i>
+    </a>
+    <div class="socials">
+        <ul class="social-icons">
+          <li><a class="linkedin" aria-label="LinkedIn" href="https://www.linkedin.com/in/rovi-fauzan-aba699352" target="_blank"><i class="fab fa-linkedin"></i></a></li> 
+          <li><a class="github" aria-label="GitHub" href="https://github.com/RoviFauzan" target="_blank"><i class="fab fa-github"></i></a></li>
+          <li><a class="telegram" aria-label="Telegram" href="https://t.me/rovifauzan" target="_blank"><i class="fab fa-telegram-plane"></i></a></li>
+          <li><a class="instagram" aria-label="Instagram" href="https://www.instagram.com/rovifauzan465"><i class="fab fa-instagram" target="_blank"></i></a></li>
+        </ul>
+      </div>
+    </div>
+<div class="image">
+    <img draggable="false" class="tilt" src="./assets/images/hero.png" alt="">
+</div>
+</section>
+<!-- hero section ends -->
+
+
+<!-- about section starts -->
+<section class="about" id="about">
+    <h2 class="heading"><i class="fas fa-user-alt"></i> About <span>Me</span></h2>
+    
+    <div class="row">
+        <div class="image">
+            <img draggable="false" class="tilt" src="./assets/images/profile2.jpg" alt="">
+            
+            <!-- Updated Read My Blog button with enhanced styling -->
+            <a href="blog.html" class="btn blog-btn">
+                <span>Read My Blog</span>
+                <i class="fas fa-book-reader"></i>
+            </a>
+        </div>
+        <div class="content">
+            <div class="about-intro">
+                <h3>I'm Rovi Fauzan</h3>
+                <span class="tag">Full Stack Developer</span>
+                <p>I am a Full Stack Developer with a focus on modern web development and UI/UX design.</p>
+            </div>
+
+            <div class="about-tabs">
+                <button class="about-tab active" data-tab="identity">Identity</button>
+                <button class="about-tab" data-tab="interests">Interests</button>
+                <button class="about-tab" data-tab="expertise">Expertise</button>
+            </div>
+
+            <div class="about-content" id="aboutContent">
+                <!-- Content will be loaded dynamically via JavaScript -->
+            </div>
+        </div>
+    </div>
+</section>
+<!-- about section ends -->
+
+<!-- skills section starts -->
+<section class="skills" id="skills">
+  <h2 class="heading"><i class="fas fa-tools"></i> Skills & <span>Abilities</span></h2>
+
+  <div class="tabs">
+      <button class="tab active" data-category="Frontend">Frontend</button>
+      <button class="tab" data-category="Backend">Backend</button>
+      <button class="tab" data-category="Database">Database</button>
+      <button class="tab" data-category="Dev Tools">Dev Tools</button>
+      <button class="tab" data-category="Soft Skills">Soft Skills</button>
+  </div>
+
+  <div class="container">
+      <div class="row" id="skillsContainer"></div>
+  </div>
+</section>
+<!-- skills section ends -->
+
+
+<!-- education section starts -->
+<section class="whyme-container" id="whyme">
+  <h1 class="whyme-heading"><i class="fas fa-graduation-cap"></i> Why <span>Me</span></h1>
+
+  <div class="whyme-box-container">
+      <div class="whyme-box">
+          <i class="fas fa-laptop-code"></i>
+          <div class="whyme-content">
+              <h3>Programming Skills</h3>
+              <p>Experienced in multiple programming languages and problem-solving.</p>
+          </div>
+      </div>
+
+      <div class="whyme-box">
+          <i class="fas fa-project-diagram"></i>
+          <div class="whyme-content">
+              <h3>Project Management</h3>
+              <p>Efficient in handling projects from planning to execution.</p>
+          </div>
+      </div>
+
+      <div class="whyme-box">
+          <i class="fas fa-users"></i>
+          <div class="whyme-content">
+              <h3>Team Player</h3>
+              <p>Excellent collaboration and leadership in teamwork environments.</p>
+          </div>
+      </div>
+
+      <div class="whyme-box">
+          <i class="fas fa-lightbulb"></i>
+          <div class="whyme-content">
+              <h3>Innovative Thinking</h3>
+              <p>Creative problem-solver with a passion for innovation.</p>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- education section ends -->
+
+<section id="testimonials" class="testimonial-section">
+  <h2 class="heading"><i class="fas fa-briefcase"></i> Testimonials </h2>
+  <div class="testimonial-container">
+      <div class="testimonials">
+          <div class="testimonial">
+              <div class="profile-icon"></div>
+              <p>"Rovi is a fantastic developer! His work exceeded my expectations."</p>
+              <h4>- John Doe</h4>
+              <p class="company">ABC Tech Solutions</p>
+              <div class="stars">★★★★★</div>
+          </div>
+          <div class="testimonial">
+              <div class="profile-icon"></div>
+              <p>"Highly recommend Rovi for any web development needs. Professional and efficient!"</p>
+              <h4>- Jane Smith</h4>
+              <p class="company">XYZ Digital Agency</p>
+              <div class="stars">★★★★★</div>
+          </div>
+          <div class="testimonial">
+              <div class="profile-icon"></div>
+              <p>"Amazing attention to detail and very responsive. A pleasure to work with!"</p>
+              <h4>- Michael Lee</h4>
+              <p class="company">UI/UX Designer, Creative Co.</p>
+              <div class="stars">★★★★★</div>
+          </div>
+          <div class="testimonial">
+              <div class="profile-icon"></div>
+              <p>"Delivered outstanding results in a short amount of time. Will hire again!"</p>
+              <h4>- Sarah Connor</h4>
+              <p class="company">Entrepreneur</p>
+              <div class="stars">★★★★★</div>
+          </div>
+          <div class="testimonial">
+              <div class="profile-icon"></div>
+              <p>"Great problem-solving skills and very creative. Highly recommended!"</p>
+              <h4>- David Brown</h4>
+              <p class="company">Marketing Specialist, Bright Media</p>
+              <div class="stars">★★★★★</div>
+          </div>
+          <div class="testimonial">
+              <div class="profile-icon"></div>
+              <p>"Professional and easy to communicate with. Helped my business grow online!"</p>
+              <h4>- Emily White</h4>
+              <p class="company">CEO, White Enterprises</p>
+              <div class="stars">★★★★★</div>
+          </div>
+      </div>
+  </div>
+</section>
+
+
+<!-- work project section starts -->
+<section class="portfolio" id="portfolio">
+
+  <h2 class="heading"><i class="fas fa-laptop-code"></i> Portfolio</h2>
+
+  <div class="box-container">
+    <!-- Projects will be dynamically loaded here -->
+  </div>
+
+  <div class="viewall">
+    <a href="projects.html" class="btn"><span>View All</span>
+      <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+
+</section>
+<!-- work project section ends -->
+
+<!-- contact section starts -->
+<section class="contact" id="contact">
+  <h2 class="heading"><i class="fas fa-headset"></i> Contact</h2>
+  
+  <div class="container">
+    <div class="content">
+      <!-- Contact Information Box -->
+      <div class="contact-info-box">
+        <h3>Contact Information</h3>
+        <p class="contact-desc">Feel free to get in touch with me. I am always open to discussing new projects, creative ideas or opportunities to be part of your visions.</p>
+        
+        <div class="info-wrapper">
+          <div class="info-item">
+            <div class="icon-circle">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="details">
+              <h4>Call Me</h4>
+              <p>+62 821-2725-2900</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon-circle">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="details">
+              <h4>Email Me</h4>
+              <p>rovifauzan24@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="icon-circle">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="details">
+              <h4>Location</h4>
+              <p>Tasikmalaya, Indonesia-46122</p>
+              <a href="https://maps.app.goo.gl/VouNeSKZHuHGGsUh9" target="_blank" class="map-link">View on Maps</a>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://github.com/RoviFauzan" target="_blank">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com/in/rovi-fauzan-aba699352" target="_blank">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.instagram.com/rovifauzan465" target="_blank">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://t.me/rovifauzan" target="_blank">
+              <i class="fab fa-telegram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Message Form Box -->
+      <div class="message-box">
+        <h3>Send Me a Message</h3>
+        <form id="contact-form">
+          <div class="form-group">
+            <div class="field">
+              <input type="text" name="name" id="name" placeholder="Your Name" maxlength="50" required>
+              <i class='fas fa-user'></i>
+              <small class="error-message"></small>
+            </div>
+            <div class="field">
+              <input type="email" name="email" id="email" placeholder="Your Email" maxlength="100" autocapitalize="off" autocomplete="email" required>
+              <i class='fas fa-envelope'></i>
+              <small class="error-message"></small>
+            </div>
+            <div class="field">
+              <input type="tel" name="phone" id="phone" placeholder="Your Phone Number" maxlength="15" required>
+              <i class='fas fa-phone'></i>
+              <small class="error-message"></small>
+            </div>
+            <div class="field">
+              <input type="text" name="subject" id="subject" placeholder="Subject" maxlength="100" required>
+              <i class='fas fa-tag'></i>
+              <small class="error-message"></small>
+            </div>
+            <div class="message">
+              <textarea placeholder="Your Message" name="message" id="message" maxlength="500" required></textarea>
+              <i class="fas fa-comment-dots"></i>
+              <small class="error-message"></small>
+            </div>
+            <!-- Web3Forms specific fields -->
+            <input type="hidden" name="access_key" value="28b6ea1a-1b03-4bc8-a70a-1d4f87f4b43e">
+            <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+            <!-- Result message container -->
+            <div id="result"></div>
+          </div>
+          <div class="button-area">
+            <button type="submit" id="submit-btn">
+              Send Message <i class="fa fa-paper-plane"></i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- contact section ends -->
+
+
+<!-- footer section starts -->
+<section class="footer">
+
+  <div class="box-container">
+
+      <div class="box">
+          <h3>Rovi's Portfolio</h3>
+          <p>Thank you for visiting my personal portfolio website. Connect with me over socials. <br/> <br/> Keep Rising 🚀</p>
+          
+          <div class="policy-links">
+            <h4>Legal</h4>
+            <a href="/privacy-policy"><i class="fas fa-shield-alt"></i> Privacy Policy</a>
+            <a href="/terms-of-service"><i class="fas fa-gavel"></i> Terms of Service</a>
+            <a href="/sitemap"><i class="fas fa-sitemap"></i> Sitemap</a>
+            <a href="/faq"><i class="fas fa-question-circle"></i> FAQ</a>
+          </div>
+      </div>
+
+      <div class="box">
+          <h3>quick links</h3>
+          <a href="#home"><i class="fas fa-chevron-circle-right"></i> home</a>
+          <a href="#about"><i class="fas fa-chevron-circle-right"></i> about</a>
+          <a href="#skills"><i class="fas fa-chevron-circle-right"></i> skills</a>
+          <a href="#whyme"><i class="fas fa-chevron-circle-right"></i> why me</a>
+          <a href="#testimonials"><i class="fas fa-chevron-circle-right"></i> testimonials</a>
+          <a href="#portfolio"><i class="fas fa-chevron-circle-right"></i> portfolio</a>
+          <a href="#contact"><i class="fas fa-chevron-circle-right"></i> contact</a>
+          <a href="blog.html" class="blog-quicklink"><i class="fas fa-feather-alt"></i> blog</a>
+      </div>
+
+      <div class="box">
+          <h3>contact info</h3>
+          <p> <i class="fas fa-phone"></i>+62 821-2725-2900</p>
+          <p> <i class="fas fa-envelope"></i>rovifauzan24@gmail.com</p>
+          <p> <i class="fas fa-map-marked-alt"></i>tasikmalaya, indonesia-46122</p>
+          <div class="share">
+
+              <a href="https://www.linkedin.com/in/rovi-fauzan-aba699352" class="fab fa-linkedin" aria-label="LinkedIn" target="_blank"></a>
+              <a href="https://github.com/RoviFauzan" class="fab fa-github" aria-label="GitHub" target="_blank"></a>
+              <a href="mailto:rovifauzan24@gmail.com" class="fas fa-envelope" aria-label="Mail" target="_blank"></a>
+              <a href="https://t.me/rovifauzan" class="fab fa-telegram-plane" aria-label="Telegram" target="_blank"></a>
+              <a href="https://www.instagram.com/rovifauzan465" class="fab fa-instagram" aria-label="Instagram" target="_blank"></a>
+          </div>
+
+          <div class="certificates-footer">
+            <h3>certificates</h3>
+            <div class="cert-grid">
+                <a href="#" class="cert-item">
+                    <img src="./assets/images/certificates/aws-cloud.jpg" alt="AWS Certificate">
+                    <span>AWS Cloud Practitioner</span>
+                </a>
+                <a href="#" class="cert-item">
+                    <img src="./assets/images/certificates/google-cloud.jpg" alt="Google Certificate">
+                    <span>Google Cloud Associate</span>
+                </a>
+                <a href="#" class="cert-item">
+                    <img src="./assets/images/certificates/azure-fund.jpg" alt="Azure Certificate">
+                    <span>Azure Fundamentals</span>
+                </a>
+            </div>
+            <a href="/certificates" class="view-more-certs">
+                View All Certificates 
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+      </div>
+  </div>
+
+  <h1 class="credit">© 2025 <a href="https://www.linkedin.com/in/rovi-fauzan-aba699352"></a> Rovi Fauzan. All rights reserved.</h1>
+</section>
+<!-- footer section ends -->
+
+
+<!-- scroll top btn -->
+<a href="#home" aria-label="ScrollTop" class="fas fa-angle-up" id="scroll-top"></a>
+<!-- scroll back to top -->
+
+
+<!-- ==== ALL MAJOR JAVASCRIPT CDNS STARTS ==== -->
+<!-- jquery cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- typed.js cdn -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.5/typed.min.js" integrity="sha512-1KbKusm/hAtkX5FScVR5G36wodIMnVd/aP04af06iyQTkD17szAMGNmxfNH+tEuFp3Og/P5G32L1qEC47CZbUQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- particle.js links -->
+<script src="./assets/js/particles.min.js"></script>
+<script src="./assets/js/app.js"></script>
+
+<!-- vanilla tilt.js links -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js" integrity="sha512-SttpKhJqONuBVxbRcuH0wezjuX+BoFoli0yPsnrAADcHsQMW8rkR84ItFHGIkPvhnlRnE2FaifDOUw+EltbuHg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<!-- scroll reveal anim -->
+<script src="https://unpkg.com/scrollreveal"></script>
+
+<script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"
+    ></script>
+
+<!-- EmailJS CDN -->
+<script 
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+
+<!-- EmailJS initialization script -->
+<script type="text/javascript">
+  // Wait for the DOM to load
+  document.addEventListener('DOMContentLoaded', function() {
+    // Initialize EmailJS with your User ID
+    (function() {
+      emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
+    })();
+  });
+</script>
+
+<!-- ==== ALL MAJOR JAVASCRIPT CDNS ENDS ==== -->
+
+<script src="./assets/js/script.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+      const testimonials = document.querySelector(".testimonials");
+      const testimonialElements = document.querySelectorAll(".testimonial");
+      const testimonialWidth = testimonialElements[0].offsetWidth + 30;
+      const totalTestimonials = testimonialElements.length;
+
+      // Duplikasi elemen untuk efek infinite scroll
+      testimonials.innerHTML += testimonials.innerHTML;
+
+      let index = 0;
+      function nextTestimonial() {
+          index++;
+          testimonials.style.transition = "transform 0.5s linear";
+          testimonials.style.transform = `translateX(${-index * testimonialWidth}px)`;
+          
+          if (index >= totalTestimonials) {
+              setTimeout(() => {
+                  testimonials.style.transition = "none";
+                  index = 0;
+                  testimonials.style.transform = `translateX(0px)`;
+              }, 500);
+          }
+      }
+      setInterval(nextTestimonial, 3000);
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Blog article on Rovi Fauzan's Portfolio">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/blog.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <!-- Favicon -->
+    <link id='favicon' rel="shortcut icon" href="./assets/images/favicon.png" type="image/x-png">
+    <title>Blog Article | Rovi Fauzan</title>
+</head>
+<body>
+    <!-- Include header/navbar -->
+    <header>
+        <a href="/" class="logo"><i class="fab fa-node-js"></i> RvF</a>
+        <div id="menu" class="fas fa-bars"></div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a class="active" href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="article-container">
+        <article class="blog-article">
+            <h1 id="article-title">Article Title</h1>
+            <div class="article-meta">
+                <span class="article-author">By Rovi Fauzan</span>
+                <span class="article-date">Published on <time datetime="2023-10-15">October 15, 2023</time></span>
+            </div>
+            
+            <div class="article-content">
+                <!-- Article content will be loaded here -->
+                <p>This is a sample article content...</p>
+            </div>
+        </article>
+
+        <section class="comments-section">
+            <h2>Comments (<span id="comment-count">0</span>)</h2>
+            
+            <form id="comment-form" class="comment-form">
+                <h3>Leave a Comment</h3>
+                <input type="hidden" id="article-id" value="sample-article-uuid">
+                <input type="hidden" id="parent-comment-id" value="">
+                
+                <div class="form-group">
+                    <label for="comment-name">Name</label>
+                    <input type="text" id="comment-name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="comment-email">Email (will not be published)</label>
+                    <input type="email" id="comment-email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="comment-content">Comment</label>
+                    <textarea id="comment-content" name="content" rows="5" required></textarea>
+                </div>
+                
+                <div id="reply-to-container" class="reply-to" style="display: none;">
+                    <p>Replying to: <span id="reply-to-name"></span></p>
+                    <button type="button" id="cancel-reply" class="btn-secondary">Cancel Reply</button>
+                </div>
+                
+                <button type="submit" class="btn">Submit Comment</button>
+                <p class="comment-notice">Comments will be displayed after approval.</p>
+            </form>
+            
+            <div id="comments-container" class="comments-container">
+                <!-- Comments will be loaded here -->
+                <p id="no-comments-message">No comments yet. Be the first to comment!</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Include footer -->
+    <footer>
+        <p>&copy; 2023 Rovi Fauzan. All rights reserved.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module">
+        import commentService from './js/comments.js';
+        
+        document.addEventListener('DOMContentLoaded', async function() {
+            const articleId = document.getElementById('article-id').value;
+            const commentForm = document.getElementById('comment-form');
+            const commentsContainer = document.getElementById('comments-container');
+            const commentCountElement = document.getElementById('comment-count');
+            const noCommentsMessage = document.getElementById('no-comments-message');
+            const replyToContainer = document.getElementById('reply-to-container');
+            const replyToName = document.getElementById('reply-to-name');
+            const cancelReplyButton = document.getElementById('cancel-reply');
+            const parentCommentIdInput = document.getElementById('parent-comment-id');
+            
+            // Load comments
+            await loadComments();
+            
+            // Handle comment form submission
+            commentForm.addEventListener('submit', async function(event) {
+                event.preventDefault();
+                
+                const name = document.getElementById('comment-name').value;
+                const email = document.getElementById('comment-email').value;
+                const content = document.getElementById('comment-content').value;
+                const parentId = parentCommentIdInput.value || null;
+                
+                const result = await commentService.postComment(
+                    articleId,
+                    name,
+                    email,
+                    content,
+                    parentId
+                );
+                
+                if (result.success) {
+                    // Clear form
+                    commentForm.reset();
+                    parentCommentIdInput.value = '';
+                    replyToContainer.style.display = 'none';
+                    
+                    // Show success message
+                    alert(result.message);
+                } else {
+                    // Show error message
+                    alert(result.message);
+                }
+            });
+            
+            // Handle reply button clicks
+            commentsContainer.addEventListener('click', function(event) {
+                if (event.target.classList.contains('reply-button')) {
+                    const commentId = event.target.dataset.commentId;
+                    const commenterName = event.target.dataset.commenterName;
+                    
+                    // Set the parent comment ID
+                    parentCommentIdInput.value = commentId;
+                    
+                    // Show the reply-to info
+                    replyToName.textContent = commenterName;
+                    replyToContainer.style.display = 'block';
+                    
+                    // Scroll to the comment form
+                    commentForm.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+            
+            // Handle cancel reply button
+            cancelReplyButton.addEventListener('click', function() {
+                parentCommentIdInput.value = '';
+                replyToContainer.style.display = 'none';
+            });
+            
+            // Function to load comments
+            async function loadComments() {
+                const result = await commentService.getComments(articleId);
+                
+                if (result.success) {
+                    const comments = result.data;
+                    
+                    // Update comment count
+                    commentCountElement.textContent = comments.length;
+                    
+                    // Display comments or show "no comments" message
+                    if (comments.length > 0) {
+                        noCommentsMessage.style.display = 'none';
+                        renderComments(comments);
+                    } else {
+                        noCommentsMessage.style.display = 'block';
+                        commentsContainer.innerHTML = '';
+                        commentsContainer.appendChild(noCommentsMessage);
+                    }
+                } else {
+                    console.error('Failed to load comments:', result.error);
+                }
+            }
+            
+            // Function to render comments
+            function renderComments(comments) {
+                commentsContainer.innerHTML = '';
+                
+                comments.forEach(comment => {
+                    const commentElement = createCommentElement(comment);
+                    commentsContainer.appendChild(commentElement);
+                });
+            }
+            
+            // Function to create a comment element
+            function createCommentElement(comment) {
+                const commentDiv = document.createElement('div');
+                commentDiv.className = 'comment';
+                commentDiv.dataset.commentId = comment.id;
+                
+                const commentHeader = document.createElement('div');
+                commentHeader.className = 'comment-header';
+                
+                const commentAuthor = document.createElement('h4');
+                commentAuthor.textContent = comment.name;
+                
+                const commentDate = document.createElement('span');
+                commentDate.textContent = new Date(comment.created_at).toLocaleDateString();
+                
+                commentHeader.appendChild(commentAuthor);
+                commentHeader.appendChild(commentDate);
+                
+                const commentContent = document.createElement('div');
+                commentContent.className = 'comment-content';
+                commentContent.textContent = comment.content;
+                
+                const commentActions = document.createElement('div');
+                commentActions.className = 'comment-actions';
+                
+                const replyButton = document.createElement('button');
+                replyButton.className = 'reply-button';
+                replyButton.textContent = 'Reply';
+                replyButton.dataset.commentId = comment.id;
+                replyButton.dataset.commenterName = comment.name;
+                
+                commentActions.appendChild(replyButton);
+                
+                commentDiv.appendChild(commentHeader);
+                commentDiv.appendChild(commentContent);
+                commentDiv.appendChild(commentActions);
+                
+                // Add replies if any
+                if (comment.replies && comment.replies.length > 0) {
+                    const repliesContainer = document.createElement('div');
+                    repliesContainer.className = 'comment-replies';
+                    
+                    comment.replies.forEach(reply => {
+                        const replyElement = createCommentElement(reply);
+                        replyElement.classList.add('reply');
+                        repliesContainer.appendChild(replyElement);
+                    });
+                    
+                    commentDiv.appendChild(repliesContainer);
+                }
+                
+                return commentDiv;
+            }
+        });
+    </script>
+</body>
+</html>
